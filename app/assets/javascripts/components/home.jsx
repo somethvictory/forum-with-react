@@ -5,15 +5,15 @@ class Home extends React.Component {
     )
 
     return(
-      <div class="container px-2">
-        <div class="overflow-auto mt-3">
-          <h4 class="d-inline-block float-start">Top Questions</h4>
-          <div class="d-inline-block float-end">
-            <a href="/questions/new" class="btn btn-primary"> Ask Question </a>
+      <div className="container px-2">
+        <div className="overflow-auto mt-3">
+          <h4 className="d-inline-block float-start">Top Questions</h4>
+          <div className="d-inline-block float-end">
+            <a href="/questions/new" className="btn btn-primary"> Ask Question </a>
           </div>
         </div>
-        <div class="mt-3">
-          <table class="table table-stripe">
+        <div className="mt-3">
+          <table className="table table-stripe">
             <tbody>
               {questionItems}
             </tbody>

@@ -3,7 +3,7 @@ class QuestionItem extends React.Component {
     return(
       <tr>
         <td>
-          <a href={`/questions/${this.props.question.id}`} class="text-decoration-none"> { this.props.question.title } </a>
+          <a href={`/questions/${this.props.question.id}`} className="text-decoration-none"> { this.props.question.title } </a>
         </td>
       </tr>
     )

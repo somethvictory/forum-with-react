@@ -21,9 +21,10 @@
   <p>
     <%= @question.body %>
   </p>
-  <h3>
+  <br/>
+  <h4>
     <%= "#{@question.answers.size - 1} Answers" %>
-  </h3>
+  </h4>
   <% @question.answers.each do |answer| %>
     <% next if answer.new_record? %>
     <% background_class = answer.id.presence.to_s == params[:answer_id].to_s ? 'alert alert-info' : '' %>

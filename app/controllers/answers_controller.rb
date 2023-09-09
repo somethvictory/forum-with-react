@@ -16,7 +16,7 @@ class AnswersController < ApplicationController
     @question = current_user.questions.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
 
-    render :new
+    render :edit
   end
 
   def update
@@ -26,7 +26,7 @@ class AnswersController < ApplicationController
     if @answer.update(answer_params)
       redirect_to question_path(@question, answer_id: @answer.id)
     else
-      render :new
+      render :edit
     end
   end
 

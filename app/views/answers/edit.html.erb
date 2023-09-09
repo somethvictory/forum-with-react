@@ -1,0 +1,19 @@
+<div class="container">
+  <h3 class="text-center">
+    Answer
+  </h3>
+  <div class="well">
+    <%= form_for [@question, @answer] do |f| %>
+      <div class="mb-3">
+        <%= f.label :body, class: 'form-label' %>
+        <%= f.text_area :body, class: 'form-control', rows: 10 %>
+        <label class="text-danger">
+          <%= @answer.errors[:body].first if @answer.errors[:body].any? %>
+        </label>
+        <br/>
+        <%= link_to 'Back', root_path, class: 'btn btn-default' %>
+        <%= f.submit 'Save', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

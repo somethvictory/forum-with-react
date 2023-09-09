@@ -7,11 +7,35 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_pack_tag 'application' %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <nav class="navbar navbar-light bg-light mb-3">
+        <div class="container-fluid">
+          <%= link_to 'Forum', root_path, class: 'navbar-brand' %>
+          <%= form_with url: root_path, method: :get do |form| %>
+            <div class="input-group">
+              <%= form.text_field :query, class: 'form-control', value: params[:query] %>
+              <%= form.submit 'Search', class: 'input-group-text' %>
+            </div>
+          <% end %>
+          <% if user_signed_in? %>
+            <div>
+              <%= link_to current_user.email, edit_user_registration_path, class: 'text-decoration-none' %>
+              <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-link text-decoration-none d-inline-block' %>
+            </div>
+          <% else %>
+            <div>
+              <%= link_to 'Sign in', new_user_session_path, class: 'text-decoration-none' %>
+              |
+              <%= link_to 'Sign up', new_user_registration_path, class: 'text-decoration-none' %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+      <%= yield %>
+    </div>
   </body>
 </html>

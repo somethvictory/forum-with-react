@@ -8,7 +8,7 @@ class Home extends React.Component {
         <div class="overflow-auto mt-3">
           <h4 class="d-inline-block float-start">Top Questions</h4>
           <div class="d-inline-block float-end">
-            <a href="/questions/new" class="btn btn-primary" />
+            <a href="/questions/new" class="btn btn-primary"> Ask Question </a>
           </div>
         </div>
         <div class="mt-3">

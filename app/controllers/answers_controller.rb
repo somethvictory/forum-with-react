@@ -13,7 +13,7 @@ class AnswersController < ApplicationController
   end
 
   def edit
-    @question = current_user.questions.find(params[:question_id])
+    @question = Question.find(params[:question_id])
     @answer = @question.answers.find(params[:id])
 
     render :edit

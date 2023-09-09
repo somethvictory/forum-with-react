@@ -24,7 +24,7 @@
           <% if user_signed_in? %>
             <div>
               <%= link_to current_user.email, edit_user_registration_path, class: 'text-decoration-none' %>
-              <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-link text-decoration-none d-inline-block' %>
+              <%= button_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-link text-decoration-none d-inline-block p-0 float-end' %>
             </div>
           <% else %>
             <div>

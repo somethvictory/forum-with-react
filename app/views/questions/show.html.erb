@@ -1,0 +1,56 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <%= link_to 'Home', root_path %>
+    </li>
+    <li aria-current="page" class="breadcrumb-item active">
+      <%= @question.title %>
+    </li>
+  </ol>
+</nav>
+<div>
+  <div class="overflow-auto">
+    <h1 class="d-inline-block float-start">
+      <%= @question.title %>
+    </h1>
+    <% if @question.user == current_user %>
+      <%= link_to 'Edit', edit_question_path(@question), class: 'd-inline-block float-end mt-3' %>
+    <% end %>
+  </div>
+  <hr/>
+  <p>
+    <%= @question.body %>
+  </p>
+  <h3>
+    <%= "#{@question.answers.size - 1} Answers" %>
+  </h3>
+  <% @question.answers.each do |answer| %>
+    <% next if answer.new_record? %>
+    <% background_class = answer.id.presence.to_s == params[:answer_id].to_s ? 'alert alert-info' : '' %>
+    <hr/>
+    <div class="<%= background_class %>">
+      <h6>
+        <%= "By: #{answer.user.email}" %>
+      </h6>
+      <p>
+        <%= answer.body %>
+        <% if answer.user == current_user %>
+          <%= link_to 'Edit', edit_question_answer_path(@question, answer), class: 'text-decoration-none' %>
+        <% end %>
+      </p>
+    </div>
+  <% end %>
+</div>
+
+<% if user_signed_in? %>
+  <%= form_for [@question, @question.answers.new] do |f| %>
+    <%= f.label :body, 'Your Answer', class: 'form-label' %>
+    <%= f.text_area :body, class: 'form-control' %>
+    <label class="text-danger">
+      <%= @answer.errors[:body].first if @answer.errors[:body].any? %>
+    </label>
+    <div class="action">
+      <%= f.submit 'Post Your Answer', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+<% end %>

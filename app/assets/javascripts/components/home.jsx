@@ -3,6 +3,7 @@ class Home extends React.Component {
     let questionItems = this.props.questions.map((question, index) =>
       <QuestionItem key={index} question={question}></QuestionItem>
     )
+
     return(
       <div class="container px-2">
         <div class="overflow-auto mt-3">

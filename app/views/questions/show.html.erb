@@ -17,22 +17,33 @@
       <%= link_to 'Edit', edit_question_path(@question), class: 'd-inline-block float-end mt-3' %>
     <% end %>
   </div>
+  <div>
+    <span class="fst-italic extra-info d-block">
+      <%= "Asked by: #{@question.user.email}" %>
+    </span>
+    <span class="fst-italic extra-info d-block">
+      <%= "#{@question.created_at.strftime("%m/%d/%Y %I:%M%p")}" %>
+    </span>
+  </div>
   <hr/>
   <p>
     <%= @question.body %>
   </p>
   <br/>
   <h4>
-    <%= "#{@question.answers.size - 1} Answers" %>
+    <%= "#{@question.answers.size - 1} #{'Answer'.pluralize(@question.answers.size - 1)}" %>
   </h4>
   <% @question.answers.each do |answer| %>
     <% next if answer.new_record? %>
     <% background_class = answer.id.presence.to_s == params[:answer_id].to_s ? 'alert alert-info' : '' %>
     <hr/>
     <div class="<%= background_class %>">
-      <h6>
-        <%= "By: #{answer.user.email}" %>
-      </h6>
+      <span class="fst-italic extra-info d-block">
+        <%= "Answered by: #{answer.user.email}" %>
+      </span>
+      <span class="fst-italic extra-info d-block">
+        <%= "#{answer.created_at.strftime("%m/%d/%Y %I:%M%p")}" %>
+      </span>
       <p>
         <%= answer.body %>
         <% if answer.user == current_user %>

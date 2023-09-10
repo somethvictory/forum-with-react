@@ -11,4 +11,12 @@ class Question < ApplicationRecord
   def self.filter(query)
     where('title iLIKE ?', "%#{query}%")
   end
+
+  def as_json
+    json = super
+    json[:created_at] = created_at.strftime("%m/%d/%Y %I:%M%p")
+    json[:answers_count] = answers_count.to_i
+    json[:user] = user.as_json
+    json
+  end
 end

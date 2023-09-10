@@ -13,7 +13,7 @@ class Home extends React.Component {
           </div>
         </div>
         <div className="mt-3">
-          <table className="table table-stripe">
+          <table className="table table-stripe table-hover">
             <tbody>
               {questionItems}
             </tbody>

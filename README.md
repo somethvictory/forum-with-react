@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Forum is a very simple project that allows the users to view, ask and answer the questions. This project is build on top of Ruby on Rails and ReactJS.
 
-Things you may want to cover:
+### Demo
+https://morning-wildwood-71350-0d4582ee52d5.herokuapp.com/
+### Requirements
 
-* Ruby version
+- Ruby >= 3.2.1
+- Rails >= 7.0.7.2
 
-* System dependencies
+### Setup
+- clone the this repo
+- cd into the cloned repo
+- run `bundle install`
+- run `rails db:create`
+- run `rails db:migrate`
+- run `rails server`
 
-* Configuration
+Open browser and navigate to `localhost:3000`
 
-* Database creation
+### Features
 
-* Database initialization
+  * The user is able to view questions and answers by other users
+  * The user is able to search all the questions
+  * The user is allowed to sign up with only email and password required. The email and passowrd will be used to sign in later
+  * Signed in user is allowed to edit his own questions and answers
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Test
+- To run all test, run `rake` or `rspec`

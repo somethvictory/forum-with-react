@@ -10,7 +10,7 @@ https://morning-wildwood-71350-0d4582ee52d5.herokuapp.com/
 - Rails >= 7.0.7.2
 
 ### Setup
-- clone the this repo
+- clone this repo
 - cd into the cloned repo
 - run `bundle install`
 - run `rails db:create`
